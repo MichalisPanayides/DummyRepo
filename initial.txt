@@ -1,1 +1,2 @@
-First file to commit
+First file to commit. 
+First edit to the file.
