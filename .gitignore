@@ -1,1 +1,7 @@
 *.ipnyb_checkpoints
+*.aux
+*.fdb_latexmk
+*.log
+*.fls
+*.gz
+*.synctex
