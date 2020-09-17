@@ -32,7 +32,7 @@ for markdown_file_path in filter(
     for suggestion in filter(
         lambda suggestion: suggestion[0] not in ignored_suggestions, suggestions
     ):
-        print(f"Proselint suggests the following in {markdown_file_path}")
+        print("Proselint suggests the following:")
         print(suggestion)
         exit_code = 1
 
