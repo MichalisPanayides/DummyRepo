@@ -16,7 +16,7 @@ suggestions_to_ignore = {}
 root = get_root_path()
 exit_code = 0
 for markdown_file_path in filter(
-    lambda path: ".ipynb_checkpoints" not in str(path), root.glob("**/*tex")
+    lambda path: ".py" not in str(path), root.glob("**/*tex")
 ):
 
     markdown = markdown_file_path.read_text()
@@ -32,7 +32,7 @@ for markdown_file_path in filter(
     for suggestion in filter(
         lambda suggestion: suggestion[0] not in ignored_suggestions, suggestions
     ):
-        print("Proselint suggests the following:")
+        print(f"Proselint suggests the following in {markdown_file_path}")
         print(suggestion)
         exit_code = 1
 
