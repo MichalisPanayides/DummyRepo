@@ -10,4 +10,5 @@ dependencies:
   - invoke==1.5.0
   - pip:
     - proselint==0.10.2
+    - latexmk.py==0.4
 prefix: C:\Users\micha\Anaconda3\envs\DummyEnv

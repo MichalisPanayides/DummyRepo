@@ -22,10 +22,5 @@ jobs:
           environment-file: ./environment.yml
           activate-environment: DummyEnv
 
-      - name: Set up latex
-        uses: vinay0410/tectonic-action@master
-        with:
-          tex_path: 'writting/Long_text.tex'
-
-      # - name: Test PDF compiles
-      #   run: inv compile
+      - name: Test PDF compiles
+        run: inv compile
