@@ -7,11 +7,7 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest]
-
+    runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
@@ -21,6 +17,11 @@ jobs:
         with:
           environment-file: ./environment.yml
           activate-environment: DummyEnv
+
+      - name: Set up latex libraries
+        run: |
+          sudo apt-get update
+          sudo apt-get install latexmk
 
       - name: Test PDF compiles
         run: inv compile
