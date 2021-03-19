@@ -13,8 +13,8 @@ jobs:
         os: [windows-latest, ubuntu-latest]
 
     steps:
-      # - name: Set up Git repository
-      #   uses: actions/checkout@v2
+      - name: Set up Git repository
+        uses: actions/checkout@v2
   
       # - name: Set up miniconda and environment
       #   uses: conda-incubator/setup-miniconda@v2.0.0
