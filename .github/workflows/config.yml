@@ -26,7 +26,6 @@ jobs:
         uses: vinay0410/tectonic-action@master
         with:
           tex_path: 'writting/Long_text.tex'
-          push: 'yes'
 
       # - name: Test PDF compiles
       #   run: inv compile
