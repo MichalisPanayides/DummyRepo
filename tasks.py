@@ -32,7 +32,15 @@ def spellcheck(c):
         aspell_output = subprocess.check_output(
             ["aspell", "-t", "--list", "--lang=en_GB"], input=latex, text=True
         )
-        incorrect_words = set(aspell_output.split("\n")) - {""} - known.words
+        errors = set(aspell_output.split("\n")) - {""}
+        incorrect_words = set()
+        for error in errors:
+            if not any(
+                re.fullmatch(word.lower(), error.lower())
+                for word in known.words
+            ):
+                incorrect_words.add(error)
+
         if len(incorrect_words) > 0:
             print(f"In {path} the following words are not known: ")
             for string in sorted(incorrect_words):
