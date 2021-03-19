@@ -16,11 +16,11 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
   
-      # - name: Set up miniconda and environment
-      #   uses: conda-incubator/setup-miniconda@v2.0.0
-      #   with:
-      #     environment-file: ./environment.yml
-      #     activate-environment: DummyEnv
+      - name: Set up miniconda and environment
+        uses: conda-incubator/setup-miniconda@v2.0.0
+        with:
+          environment-file: ./environment.yml
+          activate-environment: DummyEnv
 
       - name: Set up latex
         uses: vinay0410/tectonic-action@master
