@@ -1,0 +1,28 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+  
+      - name: Set up miniconda and environment
+        uses: conda-incubator/setup-miniconda@v2.0.0
+        with:
+          environment-file: ./environment.yml
+          activate-environment: DummyEnv
+
+      - name: Install latex libs
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-extra
+          sudo apt-get install -y texlive-xetex
+          sudo apt-get install latexmk
+          sudo apt-get install texlive-science
+          sudo apt-get install aspell aspell-en
+
+      - name: Test PDF compiles
+        run: inv compile

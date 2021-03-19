@@ -1,0 +1,13 @@
+name: DummyEnv
+channels:
+  - defaults
+dependencies:
+  - python=3.8
+  - pip==20.2.4
+  - pylint==2.4.4
+  - notebook==6.0.3
+  - ipykernel==5.3.4
+  - invoke==1.5.0
+  - pip:
+    - proselint==0.10.2
+prefix: C:\Users\micha\Anaconda3\envs\DummyEnv
