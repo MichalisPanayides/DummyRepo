@@ -2,4 +2,7 @@
 
 words = {
     "odeint",
+    "Michalis",
+    "Panayides",
+    "th",
 }

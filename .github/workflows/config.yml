@@ -1,6 +1,6 @@
 name: CI
 
-on: [push, pull_request]
+on: push
 
 jobs:
   build:
@@ -9,7 +9,7 @@ jobs:
         shell: bash -l {0}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Set up Git repository
         uses: actions/checkout@v2
   
       - name: Set up miniconda and environment
@@ -18,10 +18,15 @@ jobs:
           environment-file: ./environment.yml
           activate-environment: DummyEnv
 
-      - name: Install latex libs
+      - name: Set up latex libraries
         run: |
           sudo apt-get update
           sudo apt-get install latexmk
-
+          sudo apt-get install aspell aspell-en
+          sudo apt-get install -y texlive-xetex
+          sudo apt-get install texlive-science
       - name: Test PDF compiles
         run: inv compile
+
+      - name: Test spellcheck
+        run: inv spellcheck
