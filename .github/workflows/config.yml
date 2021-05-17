@@ -23,7 +23,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install latexmk
           sudo apt-get install aspell aspell-en
-          
+          sudo apt-get install -y texlive-xetex
+          sudo apt-get install texlive-science
       - name: Test PDF compiles
         run: inv compile
 
